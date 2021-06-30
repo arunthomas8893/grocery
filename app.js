@@ -12,8 +12,22 @@ let editFlag = false;
 let editID = "";
 
 // ****** EVENT LISTENERS **********
-form.addEventListener('submit', addItem)
+form.addEventListener('submit', addItem);
+
 // ****** FUNCTIONS **********
+function addItem(e){
+    e.preventDefault();
+    const value= grocery.value;
+
+    const id = new Date().getTime().toString();
+    if(value && !editFlag){
+        console.log("add item to the list");
+    }else if (value !== "" && editFlag === true){
+        console.log("editing");
+    }else{
+        console.log("empty value");
+    }
+}
 
 // ****** LOCAL STORAGE **********
 
