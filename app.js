@@ -25,10 +25,15 @@ function addItem(e){
     }else if (value !== "" && editFlag === true){
         console.log("editing");
     }else{
-        console.log("empty value");
+       alert.textContent = 'empty value';
+       alert.classList.add("alert-danger");
     }
 }
-
+// display alert
+function displayAlert(text, action){
+    alert.textContent = text;
+    alert.classList.add(`alert-${action}`);
+}
 // ****** LOCAL STORAGE **********
 
 // ****** SETUP ITEMS **********
