@@ -13,6 +13,8 @@ let editID = "";
 
 // ****** EVENT LISTENERS **********
 form.addEventListener('submit', addItem);
+//clear function
+clearBtn.addEventListener("click",clearItems);
 
 // ****** FUNCTIONS **********
 function addItem(e){
@@ -69,7 +71,20 @@ function setBackToDefault(){
   editFlag= false;
   editID="";
   submitBtn.textContent="submit";
+}
 
+//clear function
+function clearItems(){
+  const items = document.querySelectorAll(".grocery-item");
+
+  if(items.length > 0){
+    items.forEach(function(item){
+      list.removeChild(item);
+    });
+  }
+container.classList.remove("show-container");
+displayAlert("empty list","danger");
+setBackToDefault();
 }
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id,value){
